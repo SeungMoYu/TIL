@@ -1,0 +1,50 @@
+<!-- 참고 : https://newline.tistory.com/135?category=762113 -->
+<!-- p에는 안먹히고  div안에 묶어놓은 것만 먹힘. 이전에 폰트사이즈업 만들면서
+함수 만들어서 일정 픽셀씩 늘려보고자 구글링해서 찾았지만, 아직 이해X -->
+<!DOCTYPE html>
+<html>
+
+<body>
+<h2>What Can JS Do?</h2>
+
+<p>Test p</p>
+<div>
+    <p>JS can change the style of an HTML element.</p>
+</div>
+<p>Test p</p>
+
+
+<p><a href="#1" onclick="SizeUpP();">크게(p)</a></p>
+<p><a href="#1" onclick="SizeDownP();">작게(p)</a></p>
+<p><a href="#1" onclick="SizeUpDiv();">크게(div)</a></p>
+<p><a href="#1" onclick="SizeDownDiv();">작게(div)</a></p>
+
+<script>
+    var pEle = document.querySelector("p")
+    var divEle = document.querySelector("div")
+    function SizeUpP(){
+        var fs = document.defaultView.getComputedStyle(pEle).getPropertyValue("font-size");
+        console.log("font size", fs);
+        divEle.style.fontSize=parseInt(fs) +5+"px";
+    }
+    function SizeDownP(){
+        var fs = document.defaultView.getComputedStyle(pEle).getPropertyValue("font-size");
+        console.log("font size", fs);
+        divEle.style.fontSize=parseInt(fs) -5+"px";
+    }
+    function SizeUpDiv(){
+        var fs = document.defaultView.getComputedStyle(divEle).getPropertyValue("font-size");
+        console.log("font size", fs);
+        divEle.style.fontSize=parseInt(fs) +5+"px";
+    }
+    function SizeDownDiv(){
+        var fs = document.defaultView.getComputedStyle(divEle).getPropertyValue("font-size");
+        console.log("font size", fs);
+        divEle.style.fontSize=parseInt(fs) -5+"px";
+    }
+
+</script>
+
+
+</body>
+</html>
